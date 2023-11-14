@@ -8,7 +8,7 @@
             <hr>
 
 
-            <form action="/user/{{_usid}}/edit" method="POST">
+            <form action="/edit/{{_id}}" method="POST">
 
                 <div class="mb-3 row">
                     <div class="col">
@@ -20,14 +20,14 @@
 
 
                     <div class="mb-3">
-                        <label for="usernameInput" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="usernameInput" name="username" value="{{username}}">
+                        <label for="nicknameInput" class="form-label">nickname</label>
+                        <input type="text" class="form-control" id="nicknameInput" name="nickname" value="{{nickname}}">
                     </div>
 
 
 
                     <div class="mb-3">
-                        <label for="descriptionInput" class="form-label">Descripción</label>
+                        <!--<label for="descriptionInput" class="form-label">This is who I am </label>
                         <textarea class="form-control" id="descriptionInput" rows="3"
                             name="description">{{Events}}</textarea>
                     </div>
@@ -39,12 +39,12 @@
                         <label for="descriptionInput" class="form-label"> myPlants</label>
                         <textarea class="form-control" id="descriptionInput" rows="3"
                             name="description">{{myPlants}}</textarea>
-                    </div>
+                    </div>-->
 
 
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-dark block">Update</button>
-                    </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-dark block">Update</button> <a href="/user/"></a>
+                        </div>
 
 
             </form>

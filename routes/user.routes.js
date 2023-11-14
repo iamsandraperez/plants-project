@@ -10,9 +10,7 @@ router.get("/user/list", (req, res, next) => {
         .find()
         .then(user => res.render('user/userlist', { user }))
         .catch(err => next(err))
-
 })
-
 
 
 
@@ -23,32 +21,25 @@ router.get('/user/:usid', (req, res, next) => {
         .findById(usid)
         .then(user => res.render('user/user', user))
         .catch(err => next(err))
-
 })
-
 
 
 router.get('/edit/:usid', (req, res, next) => {
     const { usid } = req.params
     User
         .findById(usid)
-        .then(res.render('user/'))
-    //.then(user => 'user/edit', { user })
-    //.catch(err => next(err))
-
-
-    //     .then(user => 'user/edit', { user })
-    //     .catch(err => next(err))
-
+        .then(user => res.render('user/edit', user))
+        .catch(err => next(err))
 })
 
 
-router.post('user/:usid/edit', (req, res, next) => {
+router.post('/edit/:usid', (req, res, next) => {
     const { usid } = req.params
-    const { email, username, myPlants, } = req.body
+    const { email, nickname } = req.body
     User
-        .findByIdAndUpdate(usid, { email, username, myPlants })
-        .then(() => res.redirect('/user/id}'))
+        .findByIdAndUpdate(usid, { email, nickname })
+        .then(user => res.render('/user/:usid', user,))
+        .catch(err => next(err))
 })
 
 
