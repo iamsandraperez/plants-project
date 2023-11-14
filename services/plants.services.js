@@ -7,7 +7,7 @@ class PlantService {
         })
     }
     getFindPlants(q) {
-        return this.axiosApp.get('', { params: { q } }) // params de axios para la url 
+        return this.axiosApp.get('', { params: { q } }) // parametros de axios para la url 
     }
     getAllPlants() {
         return this.axiosApp.get('')

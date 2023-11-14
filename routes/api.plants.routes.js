@@ -10,7 +10,7 @@ router.get('/plant/list', (req, res, next) => {
         plantService
             .getFindPlants(q)
             .then(response =>
-                res.render('plants/list', { plants: response.data.data })) // había que añadir un data más 
+                res.render('plants/list', { plants: response.data.data }))
             .catch(err => next(err))
     } else {
         plantService

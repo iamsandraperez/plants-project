@@ -49,7 +49,7 @@ router.post('/user/login', (req, res, next) => {
                     ('auth/login', { errorMessage: 'incorrect password' })
                 return
             } else {
-                //req.session.currentUser = user
+                req.session.currentUser = user
                 res.redirect('/user/list')
             }
         })
