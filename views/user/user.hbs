@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="card text-center">
+
+        <div class="card-header">
+            {{username}}
+        </div>
+        <div class="card-img-container">
+            <img src="{{myPlantimage}}" class="img-thumbnail" style="max-width: 300px; max-height: 300px;" alt="...">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Your personal profile</h5>
+            <p class="card-text">{{name}}</p>
+            <p class="card-text">{{email}}</p>
+            <p class="card-text">{{myPlants}}</p>
+            <p class="card-text">{{events}}</p>
+            <a href="user/:usid/edit" class="btn btn-primary">Edit profile </a>
+            <a href="user/logout" class="btn btn-primary">Logout</a>
+        </div>
+        <div class="card-footer text-body-secondary">
+            2 days ago
+        </div>

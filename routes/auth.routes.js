@@ -18,14 +18,24 @@ router.post('/user/create', (req, res, next) => {
         .then(hashedPassword => User.create({ name, email, username, password: hashedPassword }))
         .then(createdUser => res.redirect('/'))
         .catch(error => next(error))
+    User
+        .findOne({ email })
+        .then(user => {
+            if (user) {
+                res.render('auth/signup', { errorMessage: ' Users already registered in our database! try instead to login' },)
+                return
+
+            }
+        })
 })
 
 // Login
 
-router.get('/user/create', (req, res, next) => {
+router.get('/user/login', (req, res, next) => {
+
     res.render('auth/login')
 })
-router.post('/user/create', (req, res, next) => {
+router.post('/user/login', (req, res, next) => {
 
     const { email, password } = req.body
     User
@@ -39,8 +49,8 @@ router.post('/user/create', (req, res, next) => {
                     ('auth/login', { errorMessage: 'incorrect password' })
                 return
             } else {
-                req.session.currentUser = user
-                res.redirect('/')
+                //req.session.currentUser = user
+                res.redirect('/user/list')
             }
         })
         .catch(error => next(error))
@@ -48,8 +58,8 @@ router.post('/user/create', (req, res, next) => {
 
 
 //Logout
-router.post("/logout", (req, res, next) => {
-    req.session.destroy(() => res.redirect('/login'))
+router.post('/user/logout', (req, res, next) => {
+    req.session.destroy(() => res.redirect('/user/login'))
 })
 
 
