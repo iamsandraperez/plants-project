@@ -5,7 +5,7 @@ const User = require("../models/User.model")
 
 router.get("/user/list", (req, res, next) => {
 
-    req.body = { events, myPlants }
+
 
     User
         .find()
