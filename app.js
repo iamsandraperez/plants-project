@@ -25,6 +25,9 @@ const projectName = "Plants";
 app.locals.appTitle = `${capitalize(projectName)}`;
 
 // 👇 Start handling routes here
+const plantsRoutes = require("./routes/api.plants.routes");
+app.use("/", plantsRoutes);
+
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
 
