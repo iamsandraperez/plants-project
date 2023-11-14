@@ -7,14 +7,6 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-// router.get("/user/:id", (res, req, next) => {
-//   const { id } = req.params
-
-//   User
-//     .findById(id)
-//     .then(user => res.render('/user/:id', { user }))
-
-//})
 
 
 

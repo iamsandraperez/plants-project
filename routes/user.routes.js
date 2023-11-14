@@ -28,12 +28,17 @@ router.get('/user/:usid', (req, res, next) => {
 
 
 
-router.get('user/:usid/edit', (req, res, next) => {
+router.get('/edit/:usid', (req, res, next) => {
     const { usid } = req.params
     User
         .findById(usid)
-        .then(user => 'user/edit', { user })
-        .catch(err => next(err))
+        .then(res.render('user/'))
+    //.then(user => 'user/edit', { user })
+    //.catch(err => next(err))
+
+
+    //     .then(user => 'user/edit', { user })
+    //     .catch(err => next(err))
 
 })
 
