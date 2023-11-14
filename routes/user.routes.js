@@ -35,11 +35,10 @@ router.get('/edit/:usid', (req, res, next) => {
 
 router.post('/edit/:usid', (req, res, next) => {
     const { usid } = req.params
-    const { email, nickname } = req.body
+    const { email, nickname, myPlants, } = req.body
     User
-        .findByIdAndUpdate(usid, { email, nickname })
-        .then(user => res.render('/user/:usid', user,))
-        .catch(err => next(err))
+        .findByIdAndUpdate(usid, { email, nickname, myPlants })
+        .then(() => res.redirect('/user/id}'))
 })
 
 

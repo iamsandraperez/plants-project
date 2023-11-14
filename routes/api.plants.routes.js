@@ -1,4 +1,3 @@
-//requiere('dotenv').config() // es necesraio? solo en las views??
 
 const express = require('express')
 const router = express.Router()
