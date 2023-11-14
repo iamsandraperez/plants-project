@@ -13,8 +13,10 @@
             <p class="card-text">{{email}}</p>
             <p class="card-text">{{myPlants}}</p>
             <p class="card-text">{{events}}</p>
-            <a href="/edit/:usid" class="btn btn-primary">Edit profile </a>
-            <a href="user/logout" class="btn btn-primary">Logout</a>
+            <a href="/edit/{{_id}}" class="btn btn-primary">Edit profile </a>
+            <!--<a href="/login" class="btn btn-primary">Logout</a>-->
+            <a class='nav-item logOutButton' href='/user/logout'> logout</a>
+
         </div>
         <div class="card-footer text-body-secondary">
             2 days ago

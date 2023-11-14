@@ -10,9 +10,7 @@ router.get("/user/list", (req, res, next) => {
         .find()
         .then(user => res.render('user/userlist', { user }))
         .catch(err => next(err))
-
 })
-
 
 
 
@@ -23,32 +21,24 @@ router.get('/user/:usid', (req, res, next) => {
         .findById(usid)
         .then(user => res.render('user/user', user))
         .catch(err => next(err))
-
 })
-
 
 
 router.get('/edit/:usid', (req, res, next) => {
     const { usid } = req.params
     User
         .findById(usid)
-        .then(res.render('user/'))
-    //.then(user => 'user/edit', { user })
-    //.catch(err => next(err))
-
-
-    //     .then(user => 'user/edit', { user })
-    //     .catch(err => next(err))
-
+        .then(user => res.render('user/edit', user))
+        .catch(err => next(err))
 })
 
 
-router.post('user/:usid/edit', (req, res, next) => {
+router.post('/edit/:usid', (req, res, next) => {
     const { usid } = req.params
     const { email, nickname, myPlants, } = req.body
     User
         .findByIdAndUpdate(usid, { email, nickname, myPlants })
-        .then(() => res.redirect('/user/id}'))
+        .then(user => res.redirect('/user/:usid', user))
 })
 
 
