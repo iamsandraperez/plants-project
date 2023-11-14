@@ -9,14 +9,14 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">Your personal profile</h5>
-            <p class="card-text">{{name}}</p>
-            <p class="card-text">{{email}}</p>
-            <p class="card-text">{{myPlants}}</p>
-            <p class="card-text">{{events}}</p>
+            <p class="card-text"> name : {{name}}</p>
+            <p class="card-text">email : {{email}}</p>
+            <p class="card-text"> myPlants : {{myPlants}} </p>
+            <p class="card-text"> Events : {{events}}</p>
             <a href="/edit/{{_id}}" class="btn btn-primary">Edit profile </a>
             <!--<a href="/login" class="btn btn-primary">Logout</a>-->
             <a class='nav-item logOutButton' href='/user/logout'> logout</a>
-
+            <a href="/user/{{_id}}/delete" class="btn btn-primary"> Delete profile </a>
         </div>
         <div class="card-footer text-body-secondary">
             2 days ago
