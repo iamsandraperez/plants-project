@@ -1,14 +1,36 @@
 <form action="/plant/list">
-    <input type="search" name="q" required>
+    <input type="search" name="q">
     <input type="submit" value="search">
 </form>
-{{#each plants}}
 
-<h4>{{common_name}}</h4>
-
-
-<img src="{{default_image.medium_url}}" alt="">
-<button onclick="addFav(event,{{id}})">
-    add Fav
-</button>
-{{/each}}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Common Name</th>
+                        <th>Sunlight</th>
+                        <th>Watering</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each plants}}
+                    <tr>
+                        <td>
+                            <h3>{{common_name}}</h3>
+                        </td>
+                        <td>{{sunlight}}</td>
+                        <td>{{watering}}</td>
+                        <td><img src="{{default_image.medium_url}}" alt="Plant Image" style="max-width: 100px;"></td>
+                        <td><button class="btn btn-primary" style="background-color: rgb(157, 101, 157);"
+                                onclick="addFav(event,{{id}})">Add to My Garden</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
