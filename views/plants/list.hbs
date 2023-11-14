@@ -1,9 +1,11 @@
-<form action="/plant/list">
-    <input type="search" name="q">
-    <input type="submit" value="search">
-</form>
+<div class="d-flex justify-content-center">
+    <form action="/plant/list" class="input-group mb-3" style="max-width: 400px;">
+        <input type="search" class="form-control" name="q" placeholder="Search your plant">
+        <button type="submit" class="btn btn-primary" style="background-color: rgb(157, 101, 157)">Search</button>
+    </form>
+</div>
 
-<div class="container">
+<div class=" container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <table class="table table-striped">
@@ -23,7 +25,8 @@
                         </td>
                         <td>{{sunlight}}</td>
                         <td>{{watering}}</td>
-                        <td><img src="{{default_image.medium_url}}" alt="Plant Image" style="max-width: 100px;"></td>
+                        <td><img src="{{default_image.medium_url}}" alt="Plant Image" style="max-width: 100px;">
+                        </td>
                         <td><button class="btn btn-primary" style="background-color: rgb(157, 101, 157);"
                                 onclick="addFav(event,{{id}})">Add to My Garden</button>
                         </td>

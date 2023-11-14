@@ -17,6 +17,10 @@ const eventSchema = new Schema(
                 type: [Number]
             }
         },
+        description: {
+            type: String,
+            required: true
+        },
         owner: {
             type: Schema.Types.ObjectId,
             ref: 'User',

@@ -1,29 +1,36 @@
 <div class="container">
     <h1>Create Event</h1>
     <hr>
-    <form method="POST" action="/event/create"></form>
+    <form method="POST" action="/event/create">
 
-    <label>Title
-        <input name="title" type="text">
-    </label>
-    <br><br>
+        <label>Title
+            <input name="title" type="text">
+        </label>
+        <br><br>
 
-    <label>Date
-        <input name="date" type="text" placeholder="DD-MM-YYYY">
-    </label>
-    <br><br>
+        <label>Date
+            <input name="date" type="text" placeholder="DD-MM-YYYY">
+        </label>
+        <br><br>
 
-    <label>Latitude
-        <input name="latitude" type="text">
-    </label>
-    <br><br>
+        <label>Enter ubication
+            <input id="searchTextField" type="text" size="50" autocomplete="on" runat="server">
+            <input type="hidden" id="city2" name="city2" />
+            <input type="hidden" id="cityLat" name="cityLat" />
+            <input type="hidden" id="cityLng" name="cityLng" />
+        </label>
+        <br><br>
 
-    <label>Longitude
-        <input name="longitude" type="text">
-    </label>
-    <br><br>
-
-    <input type="submit" value="Create a new place">
+        <label>Description
+            <input name="description" type="text" class="form-control form-control-lg">
+        </label>
+        <br><br>
 
 
+        <input type="submit" value="Create a new Event">
+    </form>
 </div>
+
+<script src="/js/plants.script.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?callback=initialize&libraries=places"></script>
