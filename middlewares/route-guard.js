@@ -1,20 +1,20 @@
-const issLoggedin = (req, res, next)=> {
-    if (req.session.currentUser){
+const issLoggedin = (req, res, next) => {
+    if (req.session.currentUser) {
         next()
     } else {
         res.redirect('/log-in')
     }
 
-    }
- 
+}
 
-   
+
+
 
 const checkRole = (...adimetteRoles) => (req, res, next) => {
 
     const { role } = req.session.currentUser
 
-    if (adimetteRoles.includes(role)) {
+    if (adimetteRoles.includes(admin)) {
         next()
     } else {
         res.redirect('/')
@@ -38,4 +38,9 @@ const check = (...isOwner) => (req, res, next) => {
 
 
 module.exports = {
-    issLogedIn}
+    issLogedIn,
+    issLogedOut,
+    checkRole,
+
+}
+
