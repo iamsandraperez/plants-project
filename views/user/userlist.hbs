@@ -1,21 +1,36 @@
 <div class="container">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        {{#each user}}
-        <ul>
-            <li>
-                <h5>{{nickname}}</h5>
-                <h5>{{myPlants}}</h5>
-                <h5>{{Events}}</h5>
-                <button>
-                    <a href="/user/{{_id}}"> Explore the profile </href> </button>
-            </li>
-        </ul>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th> Nickname </th>
+                        <th> Name </th>
+                        <th>email</th>
+                        <th> My favourite plants</th>
+                        <th>Events I want to partecipate to </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each user}}
+                    <tr>
+                        <td>
+                            <h3>{{nickname}}</h3>
+                        </td>
 
+                        <td></td>
+                        <td>{{email}}</td>
+                        <td>....</td>
+                        <td>.....</td>
+                        <td><button class="btn btn-primary" style="background-color: rgb(157, 101, 157);">
+                                <a href="/user/{{_id}}"><a href="/user/{{_id}}">
+                                        Explore my profile </a></button>
 
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
     </div>
-
-</div>
-</div>
-{{/each}}
-</div>
 </div>
