@@ -5,7 +5,6 @@ function initialize() {
     let autocomplete = new google.maps.places.Autocomplete(input, { types: ['geocode'] });
 
     autocomplete.addListener('place_changed', function () {
-        console.log("ENTRO")
 
         let place = autocomplete.getPlace();
         console.log(place)
