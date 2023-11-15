@@ -1,26 +1,24 @@
-{{!--
-<div class="container">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        {{!-- {{#each event}}
-        <ul>
-            <li>
-                <h5>{{title}}</h5>
-                <h5>{{date}}</h5>
-                <h5>{{participants}}</h5> --}}
-                <button>
-                    <a href="#"> Create an event </href> </button>
-                {{!--
-            </li>
-        </ul> --}}
+<h2> List of Events</h2>
+
+<ul>
+
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card">{{title}}</h3>
+                <p class="card">Date: {{date}}</p>
 
 
-        {{!-- //<a href="/user/list/{{_id}}" class="btn btn-dark d-inline-block">Ver</a>
 
 
-    </div>
+                <a href="/??????/????{{_id}}">Edit</a>
+            </div>
+        </div>
+        <form action="/????delete/?????{{id}}" method="post">
+            <div class="d-grid mt-3">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </div>
+        </form>
 
-</div>
-</div>
-{{/each}}
-</div>
-</div> --}}
+
+</ul>

@@ -24,7 +24,7 @@ const eventSchema = new Schema(
         owner: {
             type: Schema.Types.ObjectId,
             ref: 'User',
-            required: true,
+            // required: true, descomentar una vez funcione ubicación en evento
         },
         participants: [
             {
