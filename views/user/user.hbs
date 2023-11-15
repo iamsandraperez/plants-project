@@ -1,23 +1,52 @@
 <div class="container">
-    <div class="card text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>You Personal profile
+                    <tr>
+                        <th> Nickname </th>
+                        <th> Name </th>
+                        <th>email</th>
+                        <th> My garden</th>
+                        <th>Events I want to partecipate to </th>
+                    </tr>
+                </thead>
+                <tbody>
 
-        <div class="card-header">
-            {{nickname}}
+                    <tr>
+
+
+                        <td>{{nickname}}</td>
+                        <td>{{name}}</td>
+                        <td>{{email}}</td>
+                        <td>.....</td>
+                        <td>.....</td>
+
+                        <td><button class="btn btn-primary" style="background-color: rgb(157, 101, 157);">
+                                <a class=href="/edit/{{_id}}" class="btn btn-primary"
+                                    style="background-color: rgb(157, 101, 157);">
+                                    Edit profile </a></button>
+                        </td>
+                        <td><button class="btn btn-primary" style="background-color: rgb(157, 101, 157);">
+                                <a href="/user/logout" class="btn btn-primary"
+                                    style="background-color: rgb(157, 101, 157);">
+                                    Logout</a></button>
+
+                            <form action="/delete/{{_id}}" method="POST">
+                                <input type="submit" value="Delete" class="btn btn-primary"
+                                    style="background-color: rgb(157, 101, 157);">
+                            </form>
+
+
+
+
+
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
         </div>
-        <div class="card-img-container">
-            <img src="{{myPlantimage}}" class="img-thumbnail" style="max-width: 300px; max-height: 300px;" alt="...">
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Your personal profile</h5>
-            <p class="card-text"> name : {{name}}</p>
-            <p class="card-text">email : {{email}}</p>
-            <p class="card-text"> myPlants : {{myPlants}} </p>
-            <p class="card-text"> Events : {{events}}</p>
-            <a href="/edit/{{_id}}" class="btn btn-primary">Edit profile </a>
-            <!--<a href="/login" class="btn btn-primary">Logout</a>-->
-            <a class='nav-item logOutButton' href='/user/logout'> logout</a>
-            <a href="/user/{{_id}}/delete" class="btn btn-primary"> Delete profile </a>
-        </div>
-        <div class="card-footer text-body-secondary">
-            2 days ago
-        </div>
+    </div>
+</div>

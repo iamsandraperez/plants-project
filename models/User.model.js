@@ -9,7 +9,7 @@ const userSchema = new Schema(
 
     nickname: {
       type: String,
-      unique: true,
+      unique: false,
       required: true,
     },
 
