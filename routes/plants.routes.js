@@ -4,8 +4,10 @@ const router = express.Router()
 
 const plantService = require('../services/plants.services')
 
-router.get('/plant/list', (req, res, next) => {
-    let q = req.query.q
+router.get('/plant/list', (req, res) => {
+
+    let { q } = req.query
+
     if (q) {
         plantService
             .getFindPlants(q)

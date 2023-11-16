@@ -1,5 +1,7 @@
 const { Schema, model } = require("mongoose")
 
+//TODO: IMPLEMENTAR VALIDACION CUSTOMIZADA
+
 const userSchema = new Schema(
   {
     name: {
@@ -16,7 +18,7 @@ const userSchema = new Schema(
     email: {
       type: String,
       unique: true,
-      required: true,
+      required: [true, 'El email es obligatorio'],
       trim: true,
     },
 

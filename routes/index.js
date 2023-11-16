@@ -1,5 +1,5 @@
 module.exports = app => {
-    const plantsRoutes = require("./api.plants.routes");
+    const plantsRoutes = require("./plants.routes");
     app.use("/", plantsRoutes);
 
     const indexRoutes = require("./index.routes");
@@ -13,5 +13,4 @@ module.exports = app => {
 
     const eventRoutes = require("./event.routes")
     app.use("/event", eventRoutes)
-
 }
