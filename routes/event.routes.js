@@ -14,7 +14,7 @@ router.post('/create', (req, res, next) => {
 
 
     const { title, date, cityLat, cityLng, description } = req.body  ///revisar owner and participants cuando esté terminado
-    const { owner_id } = req.session.currentUser.name
+    //const { owner_id } = req.session.currentUser.name
     const location = {
         type: 'Point',
         coordinates: [cityLng, cityLat]
@@ -22,8 +22,8 @@ router.post('/create', (req, res, next) => {
 
 
     Event
-        .create({ title, date, location, description, owner_id })
-        .then(() => res.redirect('/list'))
+        .create({ title, date, location, description })
+        .then(() => res.redirect('/event/list'))
         .catch(err => next(err))
 
 
