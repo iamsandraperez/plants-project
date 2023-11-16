@@ -19,12 +19,14 @@ router.post('/event/create', (req, res, next) => {
         type: 'Point',
         coordinates: [cityLng, cityLat]
     }
-    const { _id } = req.session.currentUser
+
 
     Event
-        .create({ title, date, location, description, owner: _id })
+        .create({ title, date, location, description })
         .then(() => res.redirect('/event/list'))
         .catch(err => next(err))
+
+
 })
 
 router.get('/event/list', (req, res, next) => {
@@ -64,8 +66,8 @@ router.post('/event/edit/:eventid', (req, res, next) => {
 
     const { title, date, location, description } = req.body
     Event
-        .findByIdAndUpdate(eventid, { title, date, location, description, owner })
-        .then(() => res.redirect(`event/${eventid}`))
+        .findByIdAndUpdate(eventid, { title, date, location, description })
+        .then(() => res.redirect(`/event/${eventid}`))
 
         .catch(err => next(err))
 })
