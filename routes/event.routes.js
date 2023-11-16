@@ -7,7 +7,7 @@ const Event = require("../models/Events.model")
 
 
 router.get('/create', (req, res, next) => {
-    res.render("events/createvent")
+    res.render("/events/createvent")
 })
 
 router.post('/create', (req, res, next) => {

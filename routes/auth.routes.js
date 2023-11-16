@@ -1,12 +1,8 @@
-const express = require('express') //////////////////////
+const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 const saltRounds = 10
-
-
-
-//Signup
 
 router.get('/user/create', (req, res, next) => res.render('auth/signup'))
 router.post('/user/create', (req, res, next) => {
@@ -21,7 +17,6 @@ router.post('/user/create', (req, res, next) => {
         .catch(error => next(error))
 })
 
-// Login
 router.get('/user/login', (req, res, next) => res.render('auth/login'))
 router.post('/user/login', (req, res, next) => {
 
@@ -43,8 +38,6 @@ router.post('/user/login', (req, res, next) => {
         .catch(error => next(error))
 })
 
-
-//Logout
 router.get('/user/logout', (req, res, next) => {
     req.session.destroy(() => res.redirect('/user/login'))
 })
