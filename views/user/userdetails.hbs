@@ -1,0 +1,36 @@
+<h1>Welcome to your profile</h1>
+
+<div>
+    <h1> {{user.name}}</h1>
+    <p>{{user.nickname}}</p>
+    <h2>{{user.email}}</h2>
+
+    {{#if isAdmin}}
+    <form action="/user/categoryvisitor/{{user._id}}" method="POST">
+        <input type="submit" value="visitor" class=" btn-white btn-xlm">
+    </form>
+
+    <form action="/user/categoryplanter/{{user._id}}" method="POST">
+        <input type="submit" value="planter" class="btn-white btn-lm">
+    </form>
+
+
+    <form action="/user/delete/{{user._id}}" method="POST">
+        <input type="submit" value="delete" class="btn btn-primary" style="background-color: rgb(157, 101, 157);">
+    </form>
+
+    <a href="/user/edit/{{user._id}}" class="btn btn-dark block">Edit</a>
+    {{/if}}
+
+    {{#unless isAdmin}}
+    {{#if isOwner}}
+    <form action="/user/delete/{{user._id}}" method="POST">
+        <input type="submit" value="delete" class="btn btn-primary" style="background-color: rgb(157, 101, 157);">
+    </form>
+
+    <a href=" /user/edit/{{user._id}}" class="btn btn-dark block">Edit</a>
+    {{/if}}
+    {{/unless}}
+    <a href="/user/list">Go back to list</a>
+
+</div>

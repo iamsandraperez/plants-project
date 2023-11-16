@@ -1,69 +1,83 @@
 const express = require('express')
 const router = express.Router()
+const plantServiceDetails = require('../services/plants.services')
 const User = require("../models/User.model")
-const { issLogedIn, checkRole, check } = require('../middlewares/route-guard')
+const { isLoggedIn, checkRole, checkRoleOwner } = require('../middlewares/route-guard')
 
-
-
-
-router.get("/user/list", (req, res, next) => {
-
-
-
+router.get("/user/list", isLoggedIn, (req, res, next) => {
     User
         .find()
         .then(user => res.render('user/userlist', { user }))
         .catch(err => next(err))
-})
-
-
-
-router.get('/user/:usid', (req, res, next) => {
-    const { usid } = req.params
-    const user = req.session.currentUser
-
-    User
-        .findById(usid)
-        .then(user => res.render('user/user', user))
-        .catch(err => next(err))
 
 })
 
+router.get('/user/details/:_id',
+    isLoggedIn, checkRole('visitor', 'planter', 'admin'), (req, res, next) => {
+        console.log(req.params)
+        const { _id } = req.params
+        const isAdmin = req.session.currentUser.role === 'admin'
+        const isOwner = req.session.currentUser._id === _id
 
-router.get('/edit/:usid', issLogedIn, (req, res, next) => {
-    const { usid } = req.params
+        console.log(req.session.currentUser)
+        User
+            .findById(_id)
+            .then(user => {   /////////////////////PUNTO DE ATENCIÓN AQUÍ
+                console.log("---------------------------------------------------", user.myPlants)
+                res.render('user/userdetails', { user, isAdmin, isOwner })
+            })
+            .catch(err => next(err))
+
+    })
+
+router.get('/user/edit/:_id', isLoggedIn, checkRoleOwner('admin'), (req, res, next) => {
+    const { _id } = req.params
     User
-        .findById(usid)
-        .then(user => res.render('user/edit',
-            { isOwner: req.session.currentUser._id === usid, user }))
-        .catch(err => next(err))
-})
-
-
-router.post('/edit/:usid', issLogedIn, (req, res, next) => {
-    const { usid } = req.params
-    const { email, nickname, password, } = req.body
-    User
-        .findByIdAndUpdate(usid, { email, nickname, password })
-        .then(() => res.redirect(`/user/${usid}`))
+        .findById(_id)
+        .then(user => res.render('user/edit', user))
         .catch(err => next(err))
 })
 
 
-
-
-router.post('/delete/:usid', issLogedIn, (req, res, next) => {
-
-
-    const { usid } = req.params
+router.post('/user/edit/:_id', isLoggedIn, checkRoleOwner('admin'), (req, res, next) => {
+    const { _id } = req.params
+    const { name, nickname, email } = req.body
+    console.log({ _id, email, nickname }) ////////////
 
     User
-        .findByIdAndDelete(usid)
+        .findByIdAndUpdate(_id, { name, nickname, email })
+        .then(() => res.redirect('/'))
+        .catch(err => next(err))
+})
+
+
+router.post('/user/delete/:_id', isLoggedIn, (req, res, next) => {
+
+    const { _id } = req.params
+
+    User
+        .findByIdAndDelete(_id)
         .then(() => res.redirect("/"))
-        .catch(err => console.log("not user", err))
-});
+        .catch(err => next(err))
+})
 
+router.post('/user/categoryvisitor/:_id', checkRole('admin'), (req, res) => {
 
+    const { _id } = req.params
+    User
+        .findByIdAndUpdate(_id, { role: 'visitor' })
+        .then(() => res.redirect('/'))
+        .catch(err => next(err))
+
+})
+
+router.post('/user/categoryplanter/:_id', checkRole('admin'), (req, res) => {
+    const { _id } = req.params
+    User
+        .findOneAndUpdate(_id, { role: 'admin' })
+        .then(() => res.redirect('/'))
+        .catch(err => next(err))
+})
 
 
 

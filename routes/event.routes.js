@@ -24,5 +24,9 @@ router.post('/event/create', (req, res, next) => {
 
 })
 
+router.get("/event/list", (req, res, next) => {
+    res.render('')
+})
+
 
 module.exports = router

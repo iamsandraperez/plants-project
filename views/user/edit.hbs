@@ -8,49 +8,32 @@
             <hr>
 
 
-            <form action="/edit/{{_id}}" method="POST">
+            <form action="/user/edit/{{_id}}" method="POST">
+
+                <div class="mb-3">
+                    <label for="nameInput" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="nameInput" name="name" value="{{nickname}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="nicknameInput" class="form-label">Nickname</label>
+                    <input type="text" class="form-control" id="nicknameInput" name="nickname" value="{{nickname}}">
+                </div>
 
                 <div class="mb-3 row">
-                    <div class="col">
-                        <label for="emailInput" class="form-label">email address</label>
-                        <input type="email" class="form-control" id="emailInput" name="email" value="{{email}}">
+                    <label for="emailInput" class="form-label">email address</label>
+                    <input type="email" class="form-control" id="emailInput" name="email" value="{{email}}">
+                </div>
 
-                    </div>
+                {{!-- <div class="mb-3">
+                    <label for="descriptionInput" class="form-label"> myPlants</label>
+                    <textarea class="form-control" id="descriptionInput" rows="3"
+                        name="description">{{myPlants}}</textarea>
+                </div> --}}
 
-
-
-                    <div class="mb-3">
-                        <label for="nicknameInput" class="form-label">Nickname</label>
-                        <input type="text" class="form-control" id="nicknameInput" name="nickname" value="{{nickname}}">
-                    </div>
-
-
-                    <div class="mb-3">
-                        <label for="nicknameInput" class="form-label">password</label>
-                        <input type="text" class="form-control" id="nicknameInput" name="password" value="{{password}}">
-                    </div>
-
-
-
-                    <div class="mb-3">
-                        <!--<label for="descriptionInput" class="form-label">This is who I am </label>
-                        <textarea class="form-control" id="descriptionInput" rows="3"
-                            name="description">{{Events}}</textarea>
-                    </div>
-
-
-
-
-                    <div class="mb-3">
-                        <label for="descriptionInput" class="form-label"> myPlants</label>
-                        <textarea class="form-control" id="descriptionInput" rows="3"
-                            name="description">{{myPlants}}</textarea>
-                    </div>-->
-
-
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-dark block">Update</button>
-                        </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Update</button>
+                </div>
 
 
             </form>

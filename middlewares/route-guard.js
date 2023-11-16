@@ -1,31 +1,32 @@
-const issLogedIn = (req, res, next) => {
+const isLoggedIn = (req, res, next) => {
     if (req.session.currentUser) {
         next()
     } else {
         res.redirect('/user/login')
     }
 }
-const checkRole = (...adimetteRoles) => (req, res, next) => {
+const checkRole = (...admittedRoles) => (req, res, next) => {
 
     const { role } = req.session.currentUser
 
-    if (adimetteRoles.includes(role)) {
+    if (admittedRoles.includes(role)) {
         next()
     } else {
-        res.redirect('/')
+        res.redirect('/user/login')
     }
 }
 
-const check = (...isOwner) => (req, res, next) => {
+const checkRoleOwner = (...rolesAllow) => (req, res, next) => {
 
     const { _id } = req.params
     const { role } = req.session.currentUser
 
 
-    if (req.session.currentUser._id === _id || isOwner.includes(role)) {
+
+    if (rolesAllow.includes(role) || req.session.currentUser._id === _id) {
         next()
     } else {
-        res.redirect('/')
+        res.redirect('/user/login')
     }
 }
 
@@ -33,7 +34,7 @@ const check = (...isOwner) => (req, res, next) => {
 
 
 module.exports = {
-    issLogedIn,
+    isLoggedIn,
     checkRole,
-    check
+    checkRoleOwner
 }

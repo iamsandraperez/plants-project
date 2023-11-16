@@ -13,4 +13,3 @@ function initialize() {
         document.getElementById('cityLng').value = place.geometry.location.lng();
     });
 }
-// google.maps.event.addDomListener(window, 'load', initialize);
