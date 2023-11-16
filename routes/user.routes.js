@@ -4,7 +4,7 @@ const plantServiceDetails = require('../services/plants.services')
 const User = require("../models/User.model")
 const { isLoggedIn, checkRole, checkRoleOwner } = require('../middlewares/route-guard')
 
-router.get("/user/list", isLoggedIn, (req, res, next) => {
+router.get("/list", isLoggedIn, (req, res, next) => {
     User
         .find()
         .then(user => res.render('user/userlist', { user }))
@@ -12,7 +12,7 @@ router.get("/user/list", isLoggedIn, (req, res, next) => {
 
 })
 
-router.get('/user/details/:_id',
+router.get('/details/:_id',
     isLoggedIn, checkRole('visitor', 'planter', 'admin'), (req, res, next) => {
         console.log(req.params)
         const { _id } = req.params
@@ -22,7 +22,7 @@ router.get('/user/details/:_id',
         console.log(req.session.currentUser)
         User
             .findById(_id)
-            .then(user => {   /////////////////////PUNTO DE ATENCIÓN AQUÍ
+            .then(user => {
                 console.log("---------------------------------------------------", user.myPlants)
                 res.render('user/userdetails', { user, isAdmin, isOwner })
             })
@@ -30,7 +30,7 @@ router.get('/user/details/:_id',
 
     })
 
-router.get('/user/edit/:_id', isLoggedIn, checkRoleOwner('admin'), (req, res, next) => {
+router.get('/edit/:_id', isLoggedIn, checkRoleOwner('admin'), (req, res, next) => {
     const { _id } = req.params
     User
         .findById(_id)
@@ -39,11 +39,10 @@ router.get('/user/edit/:_id', isLoggedIn, checkRoleOwner('admin'), (req, res, ne
 })
 
 
-router.post('/user/edit/:_id', isLoggedIn, checkRoleOwner('admin'), (req, res, next) => {
+router.post('/edit/:_id', isLoggedIn, checkRoleOwner('admin'), (req, res, next) => {
     const { _id } = req.params
     const { name, nickname, email } = req.body
-    console.log({ _id, email, nickname }) ////////////
-
+    console.log({ _id, email, nickname })
     User
         .findByIdAndUpdate(_id, { name, nickname, email })
         .then(() => res.redirect('/'))
@@ -51,18 +50,15 @@ router.post('/user/edit/:_id', isLoggedIn, checkRoleOwner('admin'), (req, res, n
 })
 
 
-router.post('/user/delete/:_id', isLoggedIn, (req, res, next) => {
-
+router.post('/delete/:_id', isLoggedIn, (req, res, next) => {
     const { _id } = req.params
-
     User
         .findByIdAndDelete(_id)
         .then(() => res.redirect("/"))
         .catch(err => next(err))
 })
 
-router.post('/user/categoryvisitor/:_id', checkRole('admin'), (req, res) => {
-
+router.post('/categoryvisitor/:_id', checkRole('admin'), (req, res) => {
     const { _id } = req.params
     User
         .findByIdAndUpdate(_id, { role: 'visitor' })
@@ -71,15 +67,13 @@ router.post('/user/categoryvisitor/:_id', checkRole('admin'), (req, res) => {
 
 })
 
-router.post('/user/categoryplanter/:_id', checkRole('admin'), (req, res) => {
+router.post('/categoryplanter/:_id', checkRole('admin'), (req, res) => {
     const { _id } = req.params
     User
         .findOneAndUpdate(_id, { role: 'admin' })
         .then(() => res.redirect('/'))
         .catch(err => next(err))
 })
-
-
 
 module.exports = router
 

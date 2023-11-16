@@ -6,11 +6,11 @@ const Event = require("../models/Events.model")
 
 
 
-router.get('/event/create', (req, res, next) => {
+router.get('/create', (req, res, next) => {
     res.render("events/createvent")
 })
 
-router.post('/event/create', (req, res, next) => {
+router.post('/create', (req, res, next) => {
 
 
     const { title, date, cityLat, cityLng, description } = req.body  ///revisar owner and participants cuando esté terminado
@@ -29,7 +29,7 @@ router.post('/event/create', (req, res, next) => {
 
 })
 
-router.get('/event/list', (req, res, next) => {
+router.get('/list', (req, res, next) => {
     Event
         .find()
         .then(fiesta => res.render("events/eventlist", { fiesta }))
@@ -37,13 +37,13 @@ router.get('/event/list', (req, res, next) => {
 
 })
 
-router.get("/event/list", (req, res, next) => {
+router.get("/list", (req, res, next) => {
     res.render('')
 })
 
 
 
-router.get('/event/:eventid', (req, res, next) => {
+router.get('/:eventid', (req, res, next) => {
 
     const { eventid } = req.params
     Event
@@ -55,7 +55,7 @@ router.get('/event/:eventid', (req, res, next) => {
 
 
 
-router.get('/event/edit/:eventid', (req, res, next) => {
+router.get('/edit/:eventid', (req, res, next) => {
     const { eventid } = req.params
 
     Event
@@ -65,7 +65,7 @@ router.get('/event/edit/:eventid', (req, res, next) => {
 })
 
 
-router.post('/event/edit/:eventid', (req, res, next) => {
+router.post('/edit/:eventid', (req, res, next) => {
     const { eventid } = req.params
 
     const { title, date, location, description } = req.body

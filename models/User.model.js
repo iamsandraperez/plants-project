@@ -32,7 +32,7 @@ const userSchema = new Schema(
     },
 
     myPlants: {
-      type: [Number]  // al ser traido el valor de id externo ¿?
+      type: [Number]
     }
   },
   {
