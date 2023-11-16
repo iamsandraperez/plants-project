@@ -4,27 +4,31 @@
     <form method="POST" action="/event/create">
 
         <label>Title
-            <input name="title" type="text">
+            <input name="title" type="text" , value=" {{title}}">
         </label>
         <br><br>
 
         <label>Date
-            <input name="date" type="date" placeholder="DD-MM-YYYY">
-        </label>
+            <input name="date" type="date" placeholder="DD-MM-YYYY" value="{{date}}"> </label>
         <br><br>
 
         <label>Enter ubication
             <input id="searchTextField" type="text" size="50" autocomplete="on" runat="server">
-            <input type="hidden" id="city2" name="city2" />
+            <input type="hidden" id="city2" name="city2" value="{{location}}" />
             <input type="hidden" id="cityLat" name="cityLat" />
             <input type="hidden" id="cityLng" name="cityLng" />
         </label>
         <br><br>
 
         <label>Description
-            <input name="description" type="text" class="form-control form-control-lg">
+            <input name="description" type="text" class="form-control form-control-lg" value="{{description}}">
         </label>
-        <br><br>
+
+
+        <!--<label>Participants
+            <input name="description" type="text" class="form-control form-control-lg" value="{{participants}}">
+        </label>
+        <br><br>-->
 
 
         <input type="submit" value="Create a new Event">

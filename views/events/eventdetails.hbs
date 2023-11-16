@@ -9,13 +9,11 @@
                         <th>location</th>
                         <th> description </th>
                         <th>participants</th>
-                        <th>Event creator</th>
-
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each fiesta}}
                     <tr>
+
 
                         <td>{{title}}</td>
                         <td>{{date}}</td>
@@ -25,13 +23,17 @@
                         <td>{{owner}}</td>
 
                         <td><button class="btn btn-primary" style="background-color: rgb(157, 101, 157);color:white">
-                                <a href="/event/{{_id}}">
-                                    Explore event details</a>
+                                <a href="/event/edit/{{_id}}">
+                                    Edit event</a>
+                            </button>
+                        <td><button class="btn btn-primary" style="background-color: rgb(157, 101, 157);color:white">
+                                <a href="/event/delete/{{_id}}">
+                                    Delete event</a>
                             </button>
 
                         </td>
                     </tr>
-                    {{/each}}
+
                 </tbody>
             </table>
         </div>
