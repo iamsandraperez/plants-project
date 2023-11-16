@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Create Event</h1>
     <hr>
-    <form method="POST" action="/event/create">
+    <form method="POST" action="/create">
 
         <label>Title
             <input name="title" type="text" , value=" {{title}}">
@@ -22,6 +22,11 @@
 
         <label>Description
             <input name="description" type="text" class="form-control form-control-lg" value="{{description}}">
+        </label>
+
+
+        <label>Creator
+            <input name="description" type="text" class="form-control form-control-lg" value="{{owner_name}}">
         </label>
 
 
