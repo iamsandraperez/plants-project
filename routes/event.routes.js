@@ -7,12 +7,12 @@ const Event = require("../models/Events.model")
 
 
 router.get('/create', (req, res, next) => {
-    res.render("/events/createvent")
+    res.render("events/createvent")
 })
 
 router.post('/create', (req, res, next) => {
 
-    const { owner_name } = req.session.currentUser.name
+    // const { owner_name } = req.session.currentUser.name
     const { title, date, cityLat, cityLng, description, } = req.body  ///revisar owner and participants cuando esté terminado
 
     const location = {
@@ -22,7 +22,7 @@ router.post('/create', (req, res, next) => {
 
 
     Event
-        .create({ title, date, location, description, owner_name })
+        .create({ title, date, location, description })
         .then(() => res.redirect('/list'))
         .catch(err => next(err))
 
