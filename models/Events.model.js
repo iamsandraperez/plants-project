@@ -21,17 +21,17 @@ const eventSchema = new Schema(
             type: [],
             required: true
         },
-        /* owner: {
-           type: Schema.Types.ObjectId,
-           ref: 'User',
-           // required: true, descomentar una vez funcione ubicación en evento
-       },
-       participants: [
-           {
-               type: Schema.Types.ObjectId,
-               ref: 'User'
-           }
-       ] */
+        owner: {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+            required: false, //descomentar una vez funcione ubicación en evento
+        },
+        participants: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ]
 
     },
     {
