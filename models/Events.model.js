@@ -18,7 +18,7 @@ const eventSchema = new Schema(
             }
         },
         description: {
-            type: String,
+            type: [],
             required: true
         },
         owner: {

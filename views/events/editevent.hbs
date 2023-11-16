@@ -1,0 +1,107 @@
+<!--<div class="container">
+    <h1>Create Event</h1>
+    <hr>
+    <form method="POST" action="/event/create">
+
+        <label>Title
+            <input name="title" type="text">
+        </label>
+        <br><br>
+
+        <label>Date
+            <input name="date" type="date" placeholder="DD-MM-YYYY">
+        </label>
+        <br><br>
+
+        <label>Enter ubication
+            <input id="searchTextField" type="text" size="50" autocomplete="on" runat="server">
+            <input type="hidden" id="city2" name="" />
+            <input type="hidden" id="cityLat" name="cityLat" />
+            <input type="hidden" id="cityLng" name="cityLng" />
+        </label>
+        <br><br>
+
+        <label>Description
+            <input name="description" type="text" class="form-control form-control-lg">
+        </label>
+        <br><br>
+
+
+        <input type="submit" value="Create a new Event">
+    </form>
+</div>-->
+
+
+
+
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Edit the event</h1>
+            <hr>
+
+
+            <form action="/event/edit/{{_id}}" method="POST">
+
+                <div class="mb-3 row">
+                    <div class="col">
+                        <label for="emailInput" class="form-label">event</label>
+                        <input type="title" class="form-control" id="emailInput" name="title" value="{{title}}">
+
+                    </div>
+
+
+
+                    <div class="mb-3">
+                        <label for="nicknameInput" class="form-label">Date</label>
+                        <input type="text" class="form-control" id="nicknameInput" name="date" value="{{date}}">
+
+                    </div>
+
+
+                    <br><br>
+
+                    <label>Change ubication
+                        <input id="searchTextField" type="text" size="50" autocomplete="on" runat="server">
+                        <input type="hidden" id="city2" name="city2" <!--value="{{location}}" --> />
+                        <input type="hidden" id="cityLat" name="cityLat" />
+                        <input type="hidden" id="cityLng" name="cityLng" />
+                    </label>
+                    <br><br>
+
+
+
+                    <div class="mb-3">
+                        <label for="descriptionInput" class="form-label">description</label>
+                        <input type="text" class="form-control" id="description" name="description"
+                            value="{{description}}">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="nicknameInput" class="form-label">owner</label>
+                        <input type="text" class="form-control" id="nicknameInput" name="owner" value="{{owner}}">
+                    </div>
+
+
+
+
+                    <div class="mb-3">
+
+
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-dark block">Update</button>
+                        </div>
+
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

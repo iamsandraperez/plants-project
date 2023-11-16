@@ -34,8 +34,8 @@ router.get('/edit/:usid', issLogedIn, (req, res, next) => {
     const { usid } = req.params
     User
         .findById(usid)
-        .then(user => res.render('user/edit',
-            { isOwner: req.session.currentUser._id === usid, user }))
+        .then(user => res.render('user/edit', user
+        ))
         .catch(err => next(err))
 })
 
