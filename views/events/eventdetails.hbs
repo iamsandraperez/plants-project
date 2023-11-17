@@ -17,19 +17,29 @@
 
                         <td>{{title}}</td>
                         <td>{{date}}</td>
-                        <td>{{location}}</td>
+                        <td>{{place}}</td>
                         <td>{{description}}</td>
-                        <td>{{participants}}</td>
-                        <td>{{owner}}</td>
+                        <td><button class="btn btn-primary" style="background-color: rgb(157, 101, 157);"
+                                onclick="unirmealevento(id,{{userid}})">Add me
+                                to the event</button>
+                        </td>
+                        <td>{{owner.name}}</td>
 
                         <td><button class="btn btn-primary" style="background-color: rgb(157, 101, 157);color:white">
-                                <a href="/edit/{{_id}}">
+                                <a href="/event/edit/{{_id}}">
                                     Edit event</a>
+
                             </button>
-                        <td><button class="btn btn-primary" style="background-color: rgb(157, 101, 157);color:white">
-                                <a href="/delete/{{_id}}">
-                                    Delete event</a>
-                            </button>
+                        <td>
+                            <form action="/event/delete/{{_id}}" method="POST">
+                                <input type="submit" value="Delete" class="btn btn-primary"
+                                    style="background-color: rgb(157, 101, 157);">
+                            </form>
+
+
+
+
+
 
                         </td>
                     </tr>

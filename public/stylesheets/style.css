@@ -5,3 +5,11 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+
+
+
+#myMap {
+  height: 400px;
+  background-color: red;
+}

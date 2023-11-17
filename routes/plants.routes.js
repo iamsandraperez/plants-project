@@ -18,7 +18,7 @@ router.get('/plant/list', (req, res) => {
         plantService
             .getAllPlants()
             .then(response =>
-                res.render('plants/list', { plants: response.data.data })) //data de la respuesta y data de la estructura de datos de la api
+                res.render('plants/list', { plants: response.data.data })) //data de la respuesta y data de la estructura de datos de la api.re.session.currentUser.favorites()
 
             .catch(err => next(err))
     }
