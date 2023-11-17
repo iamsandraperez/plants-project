@@ -4,10 +4,6 @@ const plantService = require('../services/plants.services')
 const User = require("../models/User.model")
 const { isLoggedIn, checkRole, checkRoleOwner } = require('../middlewares/route-guard')
 
-
-
-
-
 router.get("/list", isLoggedIn, (req, res, next) => {
 
     User
