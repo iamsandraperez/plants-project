@@ -1,30 +1,28 @@
 const { Schema, model } = require("mongoose")
 
-//TODO: IMPLEMENTAR VALIDACION CUSTOMIZADA
-
 const userSchema = new Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: [true, 'Name is required']
     },
 
     nickname: {
       type: String,
       unique: false,
-      required: true,
+      required: [true, 'Nickname is required']
     },
 
     email: {
       type: String,
       unique: true,
-      required: [true, 'El email es obligatorio'],
+      required: [true, 'Email is required'],
       trim: true,
     },
 
     password: {
       type: String,
-      required: true,
+      required: [true, 'Password is required'],
     },
 
     role: {

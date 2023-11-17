@@ -7,7 +7,7 @@ class PlantService {
         })
     }
     getFindPlants(q) {
-        return this.axiosApp.get('/species-list?key=sk-A7es654cd324b80892875', { params: { q } }) // parametros de axios para la url 
+        return this.axiosApp.get('/species-list?key=sk-A7es654cd324b80892875', { params: { q } })
     }
     getAllPlants() {
         return this.axiosApp.get('/species-list?key=sk-A7es654cd324b80892875')

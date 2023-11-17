@@ -3,11 +3,11 @@ const eventSchema = new Schema(
     {
         title: {
             type: String,
-            required: true
+            required: [true, 'Nickname is required']
         },
         date: {
             type: Date,
-            required: true
+            required: [true, 'Date is required']
         },
         location: {
             type: {
@@ -24,7 +24,6 @@ const eventSchema = new Schema(
         owner: {
             type: Schema.Types.ObjectId,
             ref: 'User',
-            required: false, //descomentar una vez funcione ubicación en evento
         },
         participants: [
             {

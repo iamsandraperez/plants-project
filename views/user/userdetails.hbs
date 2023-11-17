@@ -1,9 +1,49 @@
-<h1>Welcome to your profile</h1>
+<h1>Look at the garden of: </h1>
 
 <div>
-    <h1> {{user.name}}</h1>
-    <p>{{user.nickname}}</p>
-    <h2>{{user.email}}</h2>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="mr-3"><strong> {{user.name}}</strong> </h2>
+                <div class="d-flex justify-content-start align-items-center">
+                    <p class="mr-3"><strong>Nickname:</strong> {{user.nickname}}</p>
+                    <p><strong>Email:</strong> {{user.email}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Common Name</th>
+                            <th>Sunlight</th>
+                            <th>Watering</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each details}}
+                        <tr>
+                            <td>
+                                <h3>{{common_name}}</h3>
+                            </td>
+                            <td>{{sunlight}}</td>
+                            <td>{{watering}}</td>
+                            <td><img src="{{default_image.medium_url}}" alt="Plant Image" style="max-width: 100px;">
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 
     {{#if isAdmin}}
     <form action="/user/categoryvisitor/{{user._id}}" method="POST">

@@ -7,8 +7,6 @@
                         <th> Name </th>
                         <th> Nickname </th>
                         <th>Email</th>
-                        <th> My Garden</th>
-                        <th>My Events </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -17,17 +15,13 @@
                         <td>{{name}}</td>
                         <td>{{nickname}}</td>
                         <td>{{email}}</td>
-                        <td>....</td>
-                        <td>.....</td>
+
                         <td>
                             <form action="/user/details/{{_id}}">
                                 <button class="btn btn-primary" style="background-color: rgb(157, 101, 157);">
                                     Explore Profile
                                 </button>
                             </form>
-
-
-
 
                         </td>
                     </tr>
