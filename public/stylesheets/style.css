@@ -5,9 +5,3 @@ body {
   background-size: cover;
   background-position: center;
 }
-
-
-.container img {
-  width: 300px;
-  height: auto;
-}
